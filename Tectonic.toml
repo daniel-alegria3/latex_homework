@@ -1,0 +1,17 @@
+[doc]
+name = "tarea"
+bundle = "https://data1.fullyjustified.net/tlextras-2022.0r0.tar"
+
+[[output]]
+name = "output"
+type = "pdf"
+tex_format = "latex"
+shell_escape_cwd = "src"
+index = "main.tex"
+# inputs = [
+#     # { inline = "\\documentclass[a4paper]{article}" },
+#     "_preamble.tex",
+#     "main.tex",
+#     "_postamble.tex",
+# ]
+
