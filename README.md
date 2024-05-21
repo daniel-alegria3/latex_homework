@@ -12,7 +12,7 @@ de este. Asi, solo tengo que correr:
     tectonic -X build
 
 Pero se puede crear un archivo unico 'onefile.tex' junstando el contenido
-de src/_preamble.tex, y main.tex, src/_postamble.tex. Para asi usar cualquier
+de src/_preamble.tex, y src/main.tex, src/_postamble.tex. Para asi usar cualquier
 distribucion de Latex (dado se tengan installados los packetes de latex requeridos).
 
 Usando las reglas dentro del [Makefile](./Makefile)
