@@ -10,10 +10,10 @@ double f( double x ) {
 
 int main(int argc, char *argv[])
 {
-    double a = 0;   // lower bound of the interval
-    double b = 100; // upper bound of the interval
-    double h = 0.1; // the width of each rectangle
-    int ntest = 10; // number of tests
+    double a = 0;     // lower bound of the interval
+    double b = 1000; // upper bound of the interval
+    double h = 0.01;  // the width of each rectangle
+    int ntest = 10;   // number of tests
 
     if ( argc == 2 && strcmp("-i", argv[1]) == 0 ) {
         printf("a: ");
@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 
     int num_threads = omp_get_max_threads();
 
-    for ( int t = 0; t < num_threads; ++t ) {
+    for ( int t = 1; t <= num_threads; ++t ) {
         seq_time = 0;
         for ( int n = 0; n < ntest; ++n ) {
             double sum = 0; // la integral de f
@@ -83,7 +83,7 @@ int main(int argc, char *argv[])
         double speedup = seq_time / par_time;
         double efficiency = speedup / t;
         printf("%d, %lf, %lf, %lf, %lf\n",
-                t+1, seq_time, par_time, speedup, efficiency
+                t, seq_time, par_time, speedup, efficiency
         );
     }
 
