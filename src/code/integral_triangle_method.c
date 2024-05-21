@@ -1,6 +1,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <omp.h>
 
 double f( double x ) {
@@ -9,10 +10,28 @@ double f( double x ) {
 
 int main(int argc, char *argv[])
 {
-    int ntest = 10; // number of tests
-    double h = 0.1; // the width of each rectangle
     double a = 0;   // lower bound of the interval
     double b = 100; // upper bound of the interval
+    double h = 0.1; // the width of each rectangle
+    int ntest = 10; // number of tests
+
+    if ( argc == 2 && strcmp("-i", argv[1]) == 0 ) {
+        printf("a: ");
+        scanf(" %lf", &a);
+        printf("b: ");
+        scanf(" %lf", &b);
+        printf("h: ");
+        scanf(" %lf", &h);
+        printf("ntest: ");
+        scanf(" %d", &ntest);
+    }
+
+    if ( argc > 1 ) {
+        a = atof(argv[1]);
+        b = atof(argv[2]);
+        h = atof(argv[3]);
+        ntest = atoi(argv[4]);
+    }
 
     printf("Nro Hilos, Tiempo Secuencial (ms), Tiempo Paralelo (ms), ");
     printf("Speedup, Eficiencia");
