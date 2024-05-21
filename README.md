@@ -31,3 +31,12 @@ Las tablas y las imagenes tambien se pueden generar con las siguientes reglas
 
     make all
 
+# Caviats tecnicos del paquete Minted
+El paquete de latex 'minted' que utilizo necesita correr python-pygmetize en el
+shell para generar un 'cache' que se incluye en el archivo final. El paquete se
+encarga de mostrar codigo fuente en el pdf. Si se modifica el codigo fuente de
+./src/code/integral_triangle_method.c, entonces se tiene que usar la opcion
+'finalizecache' de minted para que genere el nuevo cache. Como esta ahora, el
+paquete esta usando la opcion 'frozencache', que hace que no se requiera tener
+installado python-pygmetize (porque usa el cache).
+

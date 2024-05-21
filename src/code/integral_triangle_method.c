@@ -11,19 +11,15 @@ double f( double x ) {
 int main(int argc, char *argv[])
 {
     double a = 0;     // lower bound of the interval
-    double b = 1000; // upper bound of the interval
+    double b = 1000;  // upper bound of the interval
     double h = 0.01;  // the width of each rectangle
     int ntest = 10;   // number of tests
 
     if ( argc == 2 && strcmp("-i", argv[1]) == 0 ) {
-        printf("a: ");
-        scanf(" %lf", &a);
-        printf("b: ");
-        scanf(" %lf", &b);
-        printf("h: ");
-        scanf(" %lf", &h);
-        printf("ntest: ");
-        scanf(" %d", &ntest);
+        printf("a: "); scanf(" %lf", &a);
+        printf("b: "); scanf(" %lf", &b);
+        printf("h: "); scanf(" %lf", &h);
+        printf("ntest: "); scanf(" %d", &ntest);
     }
 
     if ( argc > 1 ) {
@@ -34,8 +30,7 @@ int main(int argc, char *argv[])
     }
 
     printf("Nro Hilos, Tiempo Secuencial (ms), Tiempo Paralelo (ms), ");
-    printf("Speedup, Eficiencia");
-    printf("\n");
+    printf("Speedup, Eficiencia\n");
 
     double start, end;
     double seq_time, par_time;
@@ -55,8 +50,7 @@ int main(int argc, char *argv[])
             end = omp_get_wtime();
             seq_time += end - start;
         }
-        // promedio de tiempo secuencial
-        seq_time = seq_time / ntest;
+        seq_time = seq_time / ntest;  // promedio de tiempo secuencial
 
         par_time = 0;
         for ( int n = 0; n < ntest; ++n ) {
@@ -76,8 +70,7 @@ int main(int argc, char *argv[])
             end = omp_get_wtime();
             par_time += end - start;
         }
-        // promedio de tiempo parallelo
-        par_time = par_time / ntest;
+        par_time = par_time / ntest;  // promedio de tiempo parallelo
 
         // Results
         double speedup = seq_time / par_time;
